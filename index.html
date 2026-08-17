@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SurakshaAI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="authPage">
+
+    <div class="auth-box">
+
+        <h1>🛡️ SurakshaAI</h1>
+        <p>Smart Women Safety System</p>
+
+        <!-- Login -->
+        <div id="loginForm">
+
+            <h2>Login</h2>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button onclick="loginUser()">
+                Login
+            </button>
+
+            <p>
+                Don't have an account?
+                <button class="link-button"
+                        onclick="showRegister()">
+                    Register
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- Register -->
+        <div id="registerForm">
+
+            <h2>Create Account</h2>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Full Name"
+            >
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password"
+            >
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+            >
+
+            <button onclick="registerUser()">
+                Register
+            </button>
+
+            <p>
+                Already have an account?
+                <button class="link-button"
+                        onclick="showLogin()">
+                    Login
+                </button>
+            </p>
+
+        </div>
+
+        <p id="authMessage"></p>
+
+    </div>
+
+</div>
+
+    <div class="container">
+        <button id="settingsButton" class="settings-button">
+    ⚙️ Settings
+</button>
+
+        <!-- logout button hai============================================================= -->
+        <button id="logoutButton" onclick="logoutUser()">
+        🚪 Logout
+        </button>
+
+        <!-- // wellcome show hoga ==================================================== -->
+    
+       <div class="welcome-box">
+       <h2 id="welcomeMessage">Welcome 👋</h2>
+       <p>Your safety dashboard is ready.</p>
+       </div>
+      
+       <!-- //user profile ka cerd ============================================ -->
+        
+      <!-- <div class="profile-card">
+       <div class="profile-icon">👤</div>
+
+       <h3 id="profileName">User</h3>
+
+      <p id="profileEmail">Email</p>
+     </div> -->
+     
+     
+
+<!-- // quick safety action add kiya 2nd time =================================// -->
+     <!-- <div class="quick-actions">
+
+        <h3>⚡ Quick Safety Actions</h3>
+
+       <div class="action-grid">
+
+        <button onclick="getEmergencyLocation()">
+            📍 My Location
+        </button>
+
+        <button onclick="showEmergencyContacts()">
+            👥 Emergency Contacts
+        </button>
+
+        <button onclick="document.getElementById('emergencyPanel').style.display='block'">
+            🚨 Emergency Panel
+        </button>
+
+      </div>
+      
+      </div> -->
+      <!-- emergency-contacts ko active karne ke liye -->
+     <div id="settingsPanel" class="settings-panel">
+
+    <!-- User Profile -->
+    <div class="profile-card">
+        <div class="profile-icon">👤</div>
+
+        <h3 id="profileName">User</h3>
+
+        <p id="profileEmail">Email</p>
+    </div>
+
+    <!-- Favorite + Emergency Preferences -->
+    <div class="emergency-preferences">
+
+        <div class="favorite-contact">
+
+            <h3>❤️ Favorite Emergency Person</h3>
+
+            <input
+                type="text"
+                id="favoriteName"
+                placeholder="Person Name"
+            >
+
+            <input
+                type="tel"
+                id="favoritePhone"
+                placeholder="Phone Number"
+            >
+
+            <button onclick="saveFavoriteContact()">
+                💾 Save Favorite Person
+            </button>
+
+            <p id="favoriteMessage"></p>
+
+        </div>
+
+        <h3>🚨 Emergency Call Preferences</h3>
+
+        <p>Choose who you want to contact during an emergency:</p>
+
+        <label>
+            <input type="checkbox" id="favoriteOption">
+            ❤️ Favorite Person
+        </label>
+
+        <label>
+            <input type="checkbox" id="policeOption">
+            👮 Police (112)
+        </label>
+
+        <label>
+            <input type="checkbox" id="ambulanceOption">
+            🚑 Ambulance (108)
+        </label>
+
+        <label>
+            <input type="checkbox" id="fireOption">
+            🚒 Fire Service (101)
+        </label>
+
+        <button onclick="saveEmergencyPreferences()">
+            💾 Save Preferences
+        </button>
+
+        <p id="preferenceMessage"></p>
+
+    </div>
+
+</div>
+
+
+
+        <header>
+            <h1>🛡️ SurakshaAI</h1>
+            <p>Smart Women Safety System</p>
+        </header>
+
+        <main>
+
+            <div class="sos-section">
+
+                <h2>Emergency?</h2>
+
+                <button id="sosButton" class="sos-button">
+                    SOS
+                </button>
+                <p id="status">
+                    press SOS for emergency help
+                </p><br>
+
+               <div id="emergencyPanel" class="emergency-panel">
+
+    <h3>🚨 Emergency Mode Active</h3>
+
+    <p id="emergencyMessage">
+        Getting your location...
+    </p>
+
+    <a
+        id="emergencyMapLink"
+        href="#"
+        target="_blank"
+        class="map-button"
+    >
+        🗺️ View My Emergency Location
+    </a>
+
+    <div id="emergencyContacts"></div>
+
+</div>
+
+            </div>
+
+            <div class="features">
+
+                <div class="card">
+    <span>📍</span>
+
+    <h3>My Location</h3>
+
+    <p id="location">
+        Location not detected
+    </p>
+
+    <button id="locationButton">
+        Get Location
+    </button>
+
+    <a
+        id="mapLink"
+        href="#"
+        target="_blank"
+        class="map-button"
+    >
+        🗺️ Open in Google Maps
+    </a>
+</div>
+
+                <div class="card">
+    <span>👥</span>
+    <h3>Emergency Contacts</h3>
+
+    <input
+        type="text"
+        id="contactName"
+        placeholder="Contact name"
+    >
+
+    <input
+        type="tel"
+        id="contactNumber"
+        placeholder="Phone number"
+    >
+
+    <button onclick="addContact()">
+        Add Contact
+    </button>
+
+    <div id="contactList"></div>
+</div>
+
+                <div class="card">
+                    <span>🎤</span>
+                    <h3>Voice Safety</h3>
+                    <p>Voice emergency feature</p>
+                    <button id="voiceButton">
+                        Start Voice
+                    </button>
+                </div>
+
+            </div>
+
+        </main>
+
+        </div>
+
+        <footer>
+            <p>SurakshaAI © 2026</p>
+            <p>Developer A K Mehta</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
