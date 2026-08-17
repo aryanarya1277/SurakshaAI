@@ -667,7 +667,7 @@ async function registerUser() {
     try {
 
         const response = await fetch(
-            "http://192.168.137.1:5000/api/register",
+            "https://surakshaai-kqbl.onrender.com/api/register",
             {
                 method: "POST",
 
@@ -728,7 +728,7 @@ async function loginUser() {
     try {
 
         const response = await fetch(
-            "http://192.168.137.1:5000/api/login",
+            "https://surakshaai-kqbl.onrender.com/api/login",
             {
                 method: "POST",
 
@@ -817,7 +817,7 @@ async function checkBackend() {
     try {
 
         const response = await fetch(
-            "http://192.168.137.1:5000/api/status"
+            "https://surakshaai-kqbl.onrender.com/api/status"
         );
 
         const data = await response.json();
