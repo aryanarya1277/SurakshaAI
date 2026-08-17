@@ -42,6 +42,20 @@ def home():
         "index.html"
     )
 
+@app.route("/style.css")
+def style():
+    return send_from_directory(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "style.css"
+    )
+
+
+@app.route("/script.js")
+def script():
+    return send_from_directory(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "script.js"
+    )
 
 @app.route("/api/status")
 def status():
