@@ -667,7 +667,7 @@ async function registerUser() {
     try {
 
         const response = await fetch(
-            "https://surakshaai-kqbl.onrender.com/api/register",
+            "https://surakshaai-kqb1.onrender.com/api/register",
             {
                 method: "POST",
 
@@ -728,7 +728,7 @@ async function loginUser() {
     try {
 
         const response = await fetch(
-            "https://surakshaai-kqbl.onrender.com/api/login",
+            "https://surakshaai-kqb1.onrender.com/api/login",
             {
                 method: "POST",
 
@@ -817,7 +817,7 @@ async function checkBackend() {
     try {
 
         const response = await fetch(
-            "https://surakshaai-kqbl.onrender.com/api/status"
+            "https://surakshaai-kqb1.onrender.com/api/status"
         );
 
         const data = await response.json();
