@@ -1,4 +1,4 @@
-#registerd data pythone backend tak bhejna
+# registerd data pythone backend tak bhejna
 from flask import Flask, jsonify, request
 
 #actual account save karne ke liye database add karna , taki register karne
@@ -32,9 +32,15 @@ app = Flask(__name__)
 CORS(app)
 
 
+import os
+from flask import Flask, jsonify, request, send_from_directory
+
 @app.route("/")
 def home():
-    return "SurakshaAI Backend is Running!"
+    return send_from_directory(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "index.html"
+    )
 
 
 @app.route("/api/status")
